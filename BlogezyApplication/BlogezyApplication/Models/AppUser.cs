@@ -14,5 +14,15 @@ namespace BlogezyApplication.Models
         }
 
         public ICollection<Comment> Comments { get; set; }
+
+        public Role Role { get; set; }
+        public string Password { get; set; }
+    }
+
+
+    // Muveqqeti Role
+    public enum Role
+    {
+        User,Admin
     }
 }
