@@ -8,6 +8,11 @@ namespace BlogezyApplication.Models
 {
     public class AppUser : IdentityUser
     {
+        public AppUser()
+        {
+            Comments = new HashSet<Comment>();
+        }
 
+        public ICollection<Comment> Comments { get; set; }
     }
 }

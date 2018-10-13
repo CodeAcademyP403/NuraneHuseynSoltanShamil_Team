@@ -8,6 +8,11 @@ namespace BlogezyApplication.Models
 {
     public class Article
     {
+        public Article()
+        {
+            Comments = new HashSet<Comment>();
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -24,6 +29,8 @@ namespace BlogezyApplication.Models
 
         [Required]
         public bool Visibility { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
     }
 
     
