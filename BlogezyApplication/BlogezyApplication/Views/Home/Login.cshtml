@@ -1,7 +1,10 @@
-﻿@model AppUser
-@{ 
+﻿
+@{
     Layout = null;
 }
+
+@model AppUserViewModel
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +14,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Register Template for Bootstrap</title>
+    <title>Signin Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
     <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -75,25 +78,39 @@
 </head>
 
 <body class="text-center">
-    <form class="form-signin" asp-action="Register" asp-controller="Account" method="post">
+
+    @{
+        try
+        {
+            if (!ViewBag.ValidationInfo == null)
+            {
+            <h2>@ViewBag.ValidationInfo</h2>
+            }
+
+        }
+        catch
+        {
+
+        }
+
+    }
+    <form class="form-signin" asp-action="Index" asp-controller="Home" asp-area="" method="post">
+
         <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <div asp-validation-summary="ModelOnly"></div>
         <div class="form-group">
-            
-            <input asp-for="UserName" class="form-control" required value="Enter name">
-            <span asp-validation-for="UserName"></span>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" required autofocus>
+            <span asp-validation-for="Email"></span>
         </div>
 
         <div class="form-group">
-            <input asp-for="Email" class="form-control" required value="Enter your mail">
-            <span asp-validation-for="Email"></span>
-        </div>
-        <div class="form-group">
-            <input asp-for="Password" class="form-control" required value="Enter password">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" placeholder="Password" required>
             <span asp-validation-for="Password"></span>
         </div>
-        
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 </body>
