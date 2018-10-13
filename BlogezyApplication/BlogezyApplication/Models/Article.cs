@@ -13,6 +13,7 @@ namespace BlogezyApplication.Models
             Comments = new HashSet<Comment>();
         }
 
+        [Required]
         public int Id { get; set; }
 
         [Required]

@@ -37,9 +37,9 @@ namespace BlogezyApplication.Migrations
                 name: "Articles",
                 columns: table => new
                 {
-                    Visibility = table.Column<bool>(nullable: false),
                     ActionName = table.Column<string>(nullable: true),
                     ControllerName = table.Column<string>(nullable: true),
+                    Visibility = table.Column<bool>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
@@ -57,9 +57,9 @@ namespace BlogezyApplication.Migrations
                 name: "Menus",
                 columns: table => new
                 {
-                    Visibility = table.Column<bool>(nullable: false),
                     ActionName = table.Column<string>(nullable: true),
                     ControllerName = table.Column<string>(nullable: true),
+                    Visibility = table.Column<bool>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true)

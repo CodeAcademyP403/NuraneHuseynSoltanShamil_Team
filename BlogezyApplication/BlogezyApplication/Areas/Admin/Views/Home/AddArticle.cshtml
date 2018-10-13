@@ -1,0 +1,79 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, ArticleBlogAppCore
+@model BlogezyApplication.Models.Article
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Area/ArticleStaticFiles/ArticleStyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="form-group">
+
+            <h1>Add Article</h1>
+            
+            <form asp-area="Admin" asp-action="AddArticle" asp-controller="Home" method="post">
+                <div class="form-row forSize">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder=" Name">
+                        <span>@ViewBag.AppUserName</span>
+                    </div>
+
+                </div>
+                <input type="text" class="form-control" asp-for="Name" id="exampleInputEmail1" placeholder="Article Name">
+
+                <input type="text" class="form-control" asp-for="Category" id="exampleInputEmail1" placeholder="Category">
+                <input type="text" class="form-control" asp-for="Description" id="exampleInputEmail1" placeholder="Article Description">
+
+                <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Image" placeholder="ImageUrl">
+
+                <button type="submit" class="btn btn-dark">Send</button>
+            </form>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <div class="article">
+            <img src="~/Area/ArticleStaticFiles/logo.png" alt="">
+            <p>Graduating from the halls of the University Of Western Sydney in late 2011.</p>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Feautures</a>
+                </li>
+                <li>
+                    <a href="#">Lifestyle</a>
+                </li>
+                <li>
+                    <a href="#">Travel</a>
+                </li>
+                <li>
+                    <a href="#">Music</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
