@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlogezyApplication.Models
 {
-    public class Article
+    public class Article : Item
     {
         public Article()
         {
@@ -22,13 +22,13 @@ namespace BlogezyApplication.Models
         public string Description { get; set; }
 
         [Required]
+        public string Image { get; set; }
+
+        [Required]
         public DateTime PublicDate { get; set; }
 
         [Required]
         public string Category { get; set; }
-
-        [Required]
-        public bool Visibility { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
     }
