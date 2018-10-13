@@ -28,9 +28,14 @@ namespace BlogezyApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(AppUser user)
         {
-            if (ModelState.IsValid)
+            bool IsAlreadyRegistered =_blogezyDbContext.AppUsers.Any(x => x.Email.Equals(user.Email));
+
+
+            if (ModelState.IsValid && !IsAlreadyRegistered)
             {
+
                 user.Role = Role.User;
+                
                 await _blogezyDbContext.AppUsers.AddAsync(user);
 
                 await _blogezyDbContext.SaveChangesAsync();
@@ -51,11 +56,22 @@ namespace BlogezyApplication.Controllers
         [HttpPost]
         public  IActionResult Login(AppUserViewModel appUser)
         {
-            bool IsRegistered = _blogezyDbContext.AppUsers.Any(x => x.Email.Equals(appUser.Email));
+            bool IsRegistered = false;
+            
+             bool EmailFinded =  _blogezyDbContext.AppUsers.Any(x => x.Email.Equals(appUser.Email));
+
+            if (EmailFinded)
+            {
+              AppUser FindedUser=   _blogezyDbContext.AppUsers.Where(x => x.Email == appUser.Email).FirstOrDefault();
+                if(FindedUser.Password == appUser.Password)
+                {
+                    IsRegistered = true;
+                }
+            }
 
             if (IsRegistered)
             {
-                return RedirectToPage("Account/Home/Index");
+                return RedirectToPage("/Admin/Account/Index");
             }
             else
             {
