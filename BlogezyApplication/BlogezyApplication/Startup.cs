@@ -27,10 +27,11 @@ namespace BlogezyApplication
             }
             else
                 app.UseExceptionHandler("/Home/Error");
-            app.UseStatusCodePages();
-            app.UseAuthentication();
-            app.UseStaticFiles();
 
+            app.UseStatusCodePages();
+            
+            app.UseStaticFiles();
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
