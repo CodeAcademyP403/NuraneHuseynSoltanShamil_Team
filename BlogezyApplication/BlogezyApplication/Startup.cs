@@ -16,8 +16,6 @@ namespace BlogezyApplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            // SOmehing Added
-            string some = "Nurana";
 
 
 
