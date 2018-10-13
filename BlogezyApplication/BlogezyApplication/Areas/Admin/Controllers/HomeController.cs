@@ -35,6 +35,8 @@ namespace BlogezyApplication.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddArticle(Article article)
         {
+            article.PublicDate = DateTime.Now;
+            article.Visibility = true;
             if (ModelState.IsValid)
             {
                 BlogezyDbContext.Articles.Add(article);

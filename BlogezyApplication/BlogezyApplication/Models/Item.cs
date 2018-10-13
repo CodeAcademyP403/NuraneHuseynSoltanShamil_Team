@@ -12,7 +12,7 @@ namespace BlogezyApplication.Models
 
         public string ControllerName { get; set; }
 
-        [Required]
+        
         public bool Visibility { get; set; }
     }
 }
