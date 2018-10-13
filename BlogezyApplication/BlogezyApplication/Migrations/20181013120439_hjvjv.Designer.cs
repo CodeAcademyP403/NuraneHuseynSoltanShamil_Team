@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogezyApplication.Migrations
 {
     [DbContext(typeof(BlogezyDbContext))]
-    [Migration("20181013091456_Initial")]
-    partial class Initial
+    [Migration("20181013120439_hjvjv")]
+    partial class hjvjv
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
+                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -101,8 +101,6 @@ namespace BlogezyApplication.Migrations
                     b.Property<int>("ArticleId");
 
                     b.Property<string>("Description");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 

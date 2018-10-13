@@ -14,6 +14,6 @@ namespace BlogezyApplication.Models
         public int ArticleId { get; set; }
 
         public AppUser AppUser { get; set; }
-        public string UserId { get; set; }
+        public string AppUserId { get; set; }
     }
 }
