@@ -10,7 +10,13 @@ namespace BlogezyApplication.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController:Controller
     {
+
+        private BlogezyDbContext BlogezyDbContext { get; set; }
         
+        public HomeController(BlogezyDbContext dbContext)
+        {
+            BlogezyDbContext = dbContext;
+        }
         public IActionResult Index()
         {
             return View();
@@ -23,8 +29,22 @@ namespace BlogezyApplication.Areas.Admin.Controllers
             ViewBag.AppUserID = appUser.Id;
             ViewBag.AppUserName = appUser.UserName;
 
-            return View(new Article);
+            return View(new Article());
         }
+
+        [HttpPost]
+        public IActionResult AddArticle(Article article)
+        {
+            if (ModelState.IsValid)
+            {
+                BlogezyDbContext.Articles.Add(article);
+                BlogezyDbContext.SaveChanges();
+            }
+            
+
+            return View();
+        }
+
 
 
     }

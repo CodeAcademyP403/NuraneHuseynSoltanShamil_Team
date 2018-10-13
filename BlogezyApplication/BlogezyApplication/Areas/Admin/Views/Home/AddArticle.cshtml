@@ -26,21 +26,24 @@
                 rhoncus.
             </p>
 
-            <form>
+            <form asp-area="Admin" asp-action="AddArticle" asp-controller="Home" method="post">
                 <div class="form-row forSize">
                     <div class="col">
                         <input type="text" class="form-control" placeholder=" Name">
-                        <span>@Model.UserName</span>
+                        <span>@ViewBag.AppUserName</span>
                     </div>
 
                 </div>
 
-                <input type="text" class="form-control" asp-for="Des" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category">
+                <input type="text" class="form-control" asp-for="Category" id="exampleInputEmail1" placeholder="Category">
 
 
 
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your messsage*">
-                <button type="button" class="btn btn-dark">Send</button>
+                <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Description" placeholder="Article Description">
+                <input type="text" class="form-control" id="exampleInputEmail1" asp-for="Image" placeholder="ImageUrl">
+                <input type="datetime" class="form-control" asp-for="PublicDate" id="exampleInputEmail1" placeholder="Category">
+
+                <button type="submit" class="btn btn-dark">Send</button>
             </form>
 
         </div>
