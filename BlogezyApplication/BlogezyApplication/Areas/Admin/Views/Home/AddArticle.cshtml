@@ -21,6 +21,12 @@
         <div class="form-group">
 
             <h1>Add Article</h1>
+            @{ 
+                if (!ViewBag.ArticleState == null)
+                {
+                         <h2>ViewBag.ArticleState</h2>
+                }
+            }
             
             <form asp-area="Admin" asp-action="AddArticle" asp-controller="Home" method="post">
                 <div class="form-row forSize">

@@ -42,7 +42,8 @@ namespace BlogezyApplication.Areas.Admin.Controllers
                 BlogezyDbContext.Articles.Add(article);
                 BlogezyDbContext.SaveChanges();
             }
-            
+
+            ViewBag.ArticleState = "Article is Added !";
 
             return View();
         }
