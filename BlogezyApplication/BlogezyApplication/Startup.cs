@@ -17,7 +17,7 @@ namespace BlogezyApplication
         {
             services.AddMvc();
             // SOmehing Added
-            string some = null;
+            string some = "Shamil";
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
