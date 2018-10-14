@@ -4,18 +4,20 @@ using BlogezyApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlogezyApplication.Migrations
 {
     [DbContext(typeof(BlogezyDbContext))]
-    partial class BlogezyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181013115642_SomeChanges")]
+    partial class SomeChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -103,6 +105,8 @@ namespace BlogezyApplication.Migrations
                     b.Property<int>("ArticleId");
 
                     b.Property<string>("Description");
+
+                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
