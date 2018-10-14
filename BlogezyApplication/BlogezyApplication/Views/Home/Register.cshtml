@@ -47,32 +47,9 @@
             .form-signin .checkbox {
                 font-weight: 400;
             }
-
-            .form-signin .form-control {
-                position: relative;
-                box-sizing: border-box;
-                height: auto;
-                padding: 10px;
-                font-size: 16px;
-            }
-
-                .form-signin .form-control:focus {
-                    z-index: 2;
-                }
-
-            .form-signin input[type="email"] {
-                margin-bottom: -1px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-            }
-
-            .form-signin input[type="password"] {
-                margin-bottom: 10px;
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-            }
-    </style>
-</head>
+        </style>
+    </head>
+</html>
 
 <body class="text-center">
     <form class="form-signin" asp-action="Register" asp-controller="Home" method="post">
@@ -85,16 +62,5 @@
             <span asp-validation-for="UserName"></span>
         </div>
 
-        <div class="form-group">
-            <input asp-for="Email" class="form-control" required value="Enter your mail">
-            <span asp-validation-for="Email"></span>
-        </div>
-        <div class="form-group">
-            <input asp-for="Password" class="form-control" required value="Enter password">
-            <span asp-validation-for="Password"></span>
-        </div>
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-</body>
-</html>
+<h2>Register</h2>
+

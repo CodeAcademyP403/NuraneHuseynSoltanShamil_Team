@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BlogezyApplication.Migrations
 {
-    public partial class Initial : Migration
+    public partial class hjvjv : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,9 +37,9 @@ namespace BlogezyApplication.Migrations
                 name: "Articles",
                 columns: table => new
                 {
+                    Visibility = table.Column<bool>(nullable: false),
                     ActionName = table.Column<string>(nullable: true),
                     ControllerName = table.Column<string>(nullable: true),
-                    Visibility = table.Column<bool>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
@@ -57,9 +57,9 @@ namespace BlogezyApplication.Migrations
                 name: "Menus",
                 columns: table => new
                 {
+                    Visibility = table.Column<bool>(nullable: false),
                     ActionName = table.Column<string>(nullable: true),
                     ControllerName = table.Column<string>(nullable: true),
-                    Visibility = table.Column<bool>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true)
@@ -77,8 +77,7 @@ namespace BlogezyApplication.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Description = table.Column<string>(nullable: true),
                     ArticleId = table.Column<int>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: true)
+                    AppUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
