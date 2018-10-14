@@ -11,7 +11,6 @@ namespace BlogezyApplication.Models
         public string ActionName { get; set; }
 
         public string ControllerName { get; set; }
-
         
         public bool Visibility { get; set; }
     }
