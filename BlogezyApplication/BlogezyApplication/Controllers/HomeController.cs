@@ -20,6 +20,7 @@ namespace BlogezyApplication.Controllers
         [HttpPost]
         public IActionResult Index(AppUserViewModel appUser)
         {
+            AppUser FindedUser;
 
             bool IsRegistered = false;
 
@@ -27,7 +28,7 @@ namespace BlogezyApplication.Controllers
 
             if (EmailFinded)
             {
-                AppUser FindedUser = _blogezyDbContext.AppUsers.Where(x => x.Email == appUser.Email).FirstOrDefault();
+                FindedUser = _blogezyDbContext.AppUsers.Where(x => x.Email == appUser.Email).FirstOrDefault();
                 if (FindedUser.Password == appUser.Password)
                 {
                     IsRegistered = true;
@@ -77,7 +78,7 @@ namespace BlogezyApplication.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            ViewBag.ValidationInfo = HttpContext.Items["ValidationInfo"].ToString();
+         //   ViewBag.ValidationInfo = HttpContext.Items["ValidationInfo"].ToString();
             return View(new AppUserViewModel());
         }
     }
