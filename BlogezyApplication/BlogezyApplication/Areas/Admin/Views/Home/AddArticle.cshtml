@@ -2,6 +2,9 @@
 @addTagHelper *, ArticleBlogAppCore
 @model BlogezyApplication.Models.Article
 
+@{ 
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,21 +24,8 @@
         <div class="form-group">
 
             <h1>Add Article</h1>
-            @{ 
-                if (!ViewBag.ArticleState == null)
-                {
-                         <h2>ViewBag.ArticleState</h2>
-                }
-            }
-            
             <form asp-area="Admin" asp-action="AddArticle" asp-controller="Home" method="post">
-                <div class="form-row forSize">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder=" Name">
-                        <span>@ViewBag.AppUserName</span>
-                    </div>
-
-                </div>
+                
                 <input type="text" class="form-control" asp-for="Name" id="exampleInputEmail1" placeholder="Article Name">
 
                 <input type="text" class="form-control" asp-for="Category" id="exampleInputEmail1" placeholder="Category">

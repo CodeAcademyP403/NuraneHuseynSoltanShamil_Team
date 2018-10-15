@@ -1,4 +1,5 @@
 ﻿@model Common
+@using System;
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,13 +28,34 @@
             <ul>
                 @foreach (Menu item in Model.Menus)
                 {
-                    <li>
-                        <a href="#">@item.Name</a>
-                    </li>
+
+                <li>
+                    @{
+                        if (item.ActionName.Equals(""))
+                        {
+                            <a href="#">@item.Name</a>
+
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-primary" role="button" asp-action="@item.ActionName"  asp-controller="@item.ControllerName">@item.Name</a>
+                            
+                        }
+                        
+                    }
+
+
+                </li>
+
                 }
+                <li> <a class="btn btn-warning" role="button" asp-action="Login" asp-controller="Home">Log out</a></li>
+
             </ul>
+           
+
 
         </div>
+
         <!-- Middle Box -->
         <!-- Orta hisse -->
 
@@ -42,8 +64,9 @@
             <div class="middleBox">
                 <h1>News and Stories</h1>
                 <p>
-                    Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Proin gravida
-                    nibh vel velit auctor Aenean sollicitudin, adipisicing elit sed lorem quis bibendum auctor.
+                    There's a lot of material out there about writing great headlines. Hey, getting someone to click on your article is a critical part of your blogging strategy. But what about writing introductions?
+
+                    Compelling readers to actually read the article is an art form in and of itself -- and if you don't do it well, then you're denying yourself potential promoters, subscribers, leads, and even paying customers.
                 </p>
 
 
@@ -74,12 +97,13 @@
                         <p>
                             @article.Description
                         </p>
-                        <button type="button" class="btn btn-light">READ MORE →</button>
+                        <button type="submit" asp-action="FullArticle" asp-controller="Home" class="btn btn-light">READ MORE →</button>
+                        <br />
                     }
                 </div>
-                
-                <!-- PAGINATION -->
 
+                <!-- PAGINATION -->
+                @*
                 <footer>
                     <nav id="pagination" aria-label="Page navigation example">
                         <ul class="pagination">
@@ -113,7 +137,9 @@
                         </ul>
                     </nav>
                 </footer>
-            </div>  
+
+                *@
+            </div>
         </section>
 
 
@@ -137,8 +163,9 @@
                     vel. Sapien lobortis, eget orci purus amet pede, consectetur neque risus.
                 </p>
             </div>
+        </div>
 
-
-<h2>Index Page</h2>
+    </div>
+   </body>
 
 </html>

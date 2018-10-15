@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BlogezyApplication.Migrations
 {
-    public partial class hjvjv : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,9 @@ namespace BlogezyApplication.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Role = table.Column<int>(nullable: false),
+                    Password = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,9 +39,9 @@ namespace BlogezyApplication.Migrations
                 name: "Articles",
                 columns: table => new
                 {
-                    Visibility = table.Column<bool>(nullable: false),
                     ActionName = table.Column<string>(nullable: true),
                     ControllerName = table.Column<string>(nullable: true),
+                    Visibility = table.Column<bool>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
@@ -57,9 +59,9 @@ namespace BlogezyApplication.Migrations
                 name: "Menus",
                 columns: table => new
                 {
-                    Visibility = table.Column<bool>(nullable: false),
                     ActionName = table.Column<string>(nullable: true),
                     ControllerName = table.Column<string>(nullable: true),
+                    Visibility = table.Column<bool>(nullable: false),
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true)

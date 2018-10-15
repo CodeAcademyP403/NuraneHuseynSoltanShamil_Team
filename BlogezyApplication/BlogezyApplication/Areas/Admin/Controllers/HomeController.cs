@@ -1,4 +1,5 @@
 ﻿using BlogezyApplication.Models;
+using BlogezyApplication.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,10 @@ namespace BlogezyApplication.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public IActionResult AddArticle(AppUser appUser)
+        public IActionResult AddArticle(AppUserViewModel appUser)
         {
-            ViewBag.AppUserID = appUser.Id;
-            ViewBag.AppUserName = appUser.UserName;
-
+            ViewBag.AppUserViewModelEmail = appUser.Email;
+            
             return View(new Article());
         }
 
@@ -45,10 +45,35 @@ namespace BlogezyApplication.Areas.Admin.Controllers
 
             ViewBag.ArticleState = "Article is Added !";
 
-            return View();
+            return Redirect("../../Home/AdminPanel");
         }
 
 
+        [HttpPost]
+        public async Task<IActionResult >Remove(AppUser user)
+        {
+            //AppUser userToDeleteFinded = BlogezyDbContext.AppUsers.Find(user.Id);
+
+            var findedToDelete = BlogezyDbContext.AppUsers.Where(x => x.Email == user.Email).FirstOrDefault();
+            BlogezyDbContext.AppUsers.Remove(findedToDelete);
+          await  BlogezyDbContext.SaveChangesAsync();
+
+
+
+            return Redirect("../../Home/AdminPanel");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveArticle( Article article)
+        {
+            var findedArticleToDelete = BlogezyDbContext.Articles.Where(x => x.Id == article.Id).FirstOrDefault();
+            BlogezyDbContext.Articles.Remove(findedArticleToDelete);
+
+            await BlogezyDbContext.SaveChangesAsync();
+            return Redirect("../../Home/AdminPanel");
+
+        }
 
     }
 }

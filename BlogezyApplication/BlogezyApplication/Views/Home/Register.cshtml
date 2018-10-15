@@ -49,7 +49,6 @@
             }
         </style>
     </head>
-</html>
 
 <body class="text-center">
     <form class="form-signin" asp-action="Register" asp-controller="Home" method="post">
@@ -57,10 +56,21 @@
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <div asp-validation-summary="ModelOnly"></div>
         <div class="form-group">
-            
-            <input asp-for="UserName" class="form-control" required value="Enter name">
+            <input asp-for="UserName" class="form-control" required placeholder="Enter your name">
             <span asp-validation-for="UserName"></span>
+            <input asp-for="Email" class="form-control" required placeholder="Enter your mail address" />
+            <span asp-validation-for="Email"></span>
+            <input asp-for="Password" class="form-control" required placeholder="Enter your password">
+            <span asp-validation-for="Password"></span>
+           
         </div>
+        <input type="submit" />
+    </form>
 
-<h2>Register</h2>
+</body>
+
+
+</html>
+
+
 

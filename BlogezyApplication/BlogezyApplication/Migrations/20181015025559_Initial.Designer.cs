@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogezyApplication.Migrations
 {
     [DbContext(typeof(BlogezyDbContext))]
-    [Migration("20181013115642_SomeChanges")]
-    partial class SomeChanges
+    [Migration("20181015025559_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -105,8 +105,6 @@ namespace BlogezyApplication.Migrations
                     b.Property<int>("ArticleId");
 
                     b.Property<string>("Description");
-
-                    b.Property<string>("UserId");
 
                     b.HasKey("Id");
 
